@@ -16,7 +16,7 @@ public class Main {
 
         int[] positiveArray = Arrays.stream(array)
                 .filter(num -> num > 0)
-                .toArray();
+                .toArray(); //Изменить на for и if
 
         for (int i = 1; i < positiveArray.length; i++) {
             int key = positiveArray[i];
