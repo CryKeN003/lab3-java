@@ -1,0 +1,37 @@
+package com.company;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        System.out.println("Введите количество элементов массива");
+        Scanner input = new Scanner(System.in);
+        int len = input.nextInt();
+        int[] array = new int[len];
+        for(int i=0;i<len;i++){
+            System.out.println("Введите элементы массива");
+            array[i] = input.nextInt();
+        }
+
+        int[] positiveArray = Arrays.stream(array)
+                .filter(num -> num > 0)
+                .toArray();
+
+        for (int i = 1; i < positiveArray.length; i++) {
+            int key = positiveArray[i];
+            int j = i - 1;
+            while (j >= 0 && positiveArray[j] > key) {
+                positiveArray[j + 1] = positiveArray[j];
+                j = j - 1;
+            }
+            positiveArray[j + 1] = key;
+        }
+
+        System.out.println("Отсортированный массив положительных элементов:");
+        for (int num : positiveArray) {
+            System.out.print(num + " ");
+        }
+    }
+    }
+
